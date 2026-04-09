@@ -101,14 +101,19 @@ function print_header_site_info() : void
 
   // Company name, any extra company info and MRBS
   echo "<div class=\"company\">\n";
-  if (!empty($mrbs_company_url))
+  // Si hi ha logo, el nom de l'empresa no es repeteix al banner (es manté per correus, etc.)
+  $show_company_text = empty($mrbs_company_logo) && ($mrbs_company !== '');
+  if ($show_company_text)
   {
-    echo '<a href="' . escape_html($mrbs_company_url) . '">';
-  }
-  echo '<span>' . escape_html($mrbs_company) . '</span>';
-  if (!empty($mrbs_company_url))
-  {
-    echo "</a>\n";
+    if (!empty($mrbs_company_url))
+    {
+      echo '<a href="' . escape_html($mrbs_company_url) . '">';
+    }
+    echo '<span>' . escape_html($mrbs_company) . '</span>';
+    if (!empty($mrbs_company_url))
+    {
+      echo "</a>\n";
+    }
   }
   if (!empty($mrbs_company_more_info))
   {

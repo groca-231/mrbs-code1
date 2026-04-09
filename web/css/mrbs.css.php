@@ -1979,7 +1979,12 @@ form#add_new_user {
 
 .banner .logo img {
   display: block;
-  margin: 1em 2em 1em 0;
+  margin: 0.35em 1rem 0.35em 0;
+  max-height: 2.75rem;
+  max-width: 14rem;
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }
 
 .banner .company {
